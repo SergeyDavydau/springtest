@@ -1,9 +1,20 @@
 package com.springtest.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class News {
 
+	@Id
+	@Column(name = "id", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	@Column
 	private String title;
+
+	@Column
 	private String content;
 
 	public String getTitle() {

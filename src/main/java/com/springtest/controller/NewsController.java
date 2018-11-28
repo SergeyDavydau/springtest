@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -21,11 +22,19 @@ public class NewsController {
 		return "test.jsp";
 	}
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/news", method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("news.jsp");
-		List<News> news = newsService.getStaticNewsList();
-		modelAndView.addObject("records", news);
+
+		List<News> data = newsService.getAll();
+		modelAndView.addObject("recordsList", data);
 		return modelAndView;
+	}
+
+	@RequestMapping(value = "/news", method = RequestMethod.POST)
+	public String postNews(HttpServletRequest request) {
+		newsService.saveRecordFromRequest(request);
+
+		return "redirect:/news";
 	}
 }
