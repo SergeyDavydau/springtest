@@ -4,12 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class News {
-
-	@Id
-	@Column(name = "id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+public class News extends BaseModel<Long> {	//наследуем от класса содержащего в себе Id
 
 	@Column
 	private String title;
@@ -31,13 +26,5 @@ public class News {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 }

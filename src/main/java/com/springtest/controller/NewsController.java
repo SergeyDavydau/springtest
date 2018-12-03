@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
+@RequestMapping(value = "/news")
 public class NewsController {
 
 	@Autowired
@@ -19,22 +20,22 @@ public class NewsController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String root() {
-		return "test.jsp";
+		return "news/newsAddForm.jsp";
 	}
 
-	@RequestMapping(value = "/news", method = RequestMethod.GET)
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public ModelAndView home() {
-		ModelAndView modelAndView = new ModelAndView("news.jsp");
+		ModelAndView modelAndView = new ModelAndView("news/newsSummary.jsp");
 
 		List<News> data = newsService.getAll();
 		modelAndView.addObject("recordsList", data);
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/news", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String postNews(HttpServletRequest request) {
 		newsService.saveRecordFromRequest(request);
 
-		return "redirect:/news";
+		return "redirect:/news/view";
 	}
 }
