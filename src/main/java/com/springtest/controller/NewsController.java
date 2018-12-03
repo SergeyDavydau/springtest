@@ -18,13 +18,13 @@ public class NewsController {
 	@Autowired
 	private NewsService newsService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String root() {
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String addNews() {
 		return "news/newsAddForm.jsp";
 	}
 
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
-	public ModelAndView home() {
+	public ModelAndView viewNews() {
 		ModelAndView modelAndView = new ModelAndView("news/newsSummary.jsp");
 
 		List<News> data = newsService.getAll();
