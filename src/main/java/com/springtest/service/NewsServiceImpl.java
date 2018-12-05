@@ -11,42 +11,38 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
 
-	@Autowired
-	private NewsRepository newsRepository;
-
+    @Autowired
+    private NewsRepository newsRepository;
 
     @Override
-	public List<News> getAll() {
+    public List<News> getAll() {
 //		метод findAll (Один из стандартных методов всех репозиторий) возвращает все записи из соответствующей модели таблице из БД
-		return (List<News>) newsRepository.findAll();
-	}
+        return (List<News>) newsRepository.findAll();
+    }
 
-	@Override
-	public void saveRecordFromRequest(HttpServletRequest request) {
-		News news = new News();
+    @Override
+    public void saveRecordFromRequest(HttpServletRequest request) {
+        News news = new News();
 
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
 
-		news.setTitle(title);
-		news.setContent(content);
+        news.setTitle(title);
+        news.setContent(content);
 
 //		метод save (Один из стандартных методов всех репозиторий) кладёт объект в БД в соответствующиую этой модели таблицу
-		newsRepository.save(news);
-	}
+        newsRepository.save(news);
+    }
 
+    @Override
+    public News getOne(Long id) {
+        return newsRepository.findOne(id);
 
+    }
 
-    public News getOne(Long id){
-        News news = (News) newsRepository.findOne(id);
-
-        return news;
-
-          }
-
-
+    @Override
     public void deleteNews(Long id) {
-       newsRepository.delete(id);
+        newsRepository.delete(id);
     }
 
 }

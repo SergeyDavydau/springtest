@@ -7,10 +7,13 @@ import java.util.List;
 
 public interface NewsService {
 
-	List<News> getAll();
+    List<News> getAll();
 
-	void saveRecordFromRequest(HttpServletRequest request);
+    void saveRecordFromRequest(HttpServletRequest request);
 
+    News getOne(Long id);
+
+    void deleteNews(Long id);
 
 
 }
