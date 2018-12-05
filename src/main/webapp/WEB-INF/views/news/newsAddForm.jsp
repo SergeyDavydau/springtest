@@ -13,13 +13,13 @@
 		<div class="row">
 			<label>Title</label>
 			<br/>
-			<input type="text" name="title"/>
+			<input type="text" name="title" value="${editNews.title}" />
 		</div>
 		<br/>
 		<div class="row">
 			<label>Content</label>
 			<br/>
-			<input type="text" name="content"/>
+			<input type="text" name="content" value="${editNews.content}" />
 		</div>
 		<br/>
 		<button type="submit" value="Save">Save</button>

@@ -17,6 +17,8 @@ public interface NewsRepository extends CrudRepository<News, Long> {
 	 * (так как репозитория относитлся к сущности NEWS)*/
 	List<News> findAll();
 
+//    News findOne(Long id);
+
 	/* То же самое, но выборка написанная вручную*/
 	@Query("SELECT id, content, title FROM News")
 	List<News> getAllNews();    //НАЗВАНИЕ МЕТОДА ПРИДУМЫВАЕМ САМИ (КАКОЕ ХОТИМ)
@@ -29,6 +31,6 @@ public interface NewsRepository extends CrudRepository<News, Long> {
 	List<News> findTop5By();
 
 	/* То же самое, но выборка написанная вручную*/
-	@Query(value = "SELECT id, content, title FROM News ORDER BY Id DESC LIMIT 5", nativeQuery = true)
-	List<News> getLast5News();
+//	@Query(value = "SELECT id, content, title FROM News ORDER BY Id DESC LIMIT 5", nativeQuery = true)
+//	List<News> getLast5News();
 }

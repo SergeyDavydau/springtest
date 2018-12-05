@@ -10,4 +10,7 @@ public interface NewsService {
 	List<News> getAll();
 
 	void saveRecordFromRequest(HttpServletRequest request);
+
+
+
 }
