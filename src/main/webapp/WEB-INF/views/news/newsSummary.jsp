@@ -27,15 +27,23 @@
 				<td>${record.title}</td>
 				<td>${record.content}</td>
 				<td>
+
+            <c:forEach items="${authorList}" var="author">
+                <tr>
+                <td>${author.id}</td>
+                <td>${author.firstName}</td>
+                <td>${author.secondsName}</td>
+                <td>
+            </c:forEach>
 						<%-- TODO: СДЕЛАЙ ЧТОБЫ РАБОТАЛО РЕДАКТИРОВАНИЕ--%>
 					<a title="Edit"
-					   href="news/edit/${record.id}">
+					   href="${DOMAIN}/news/newsEdit/${record.id}">
 						<span class="fa fa-pencil"> </span>
 					</a>
 
 						<%-- TODO: СДЕЛАЙ ЧТОБЫ РАБОТАЛО УДАЛЕНИЕ (вызов в коде снизу)--%>
 					<a title="Delete"
-					   href="news/delete/${record.id}"
+					   href="${DOMAIN}/news/delete/${record.id}"
 					   onclick="return confirm('Are you sure you want to delete record?')">
 						<span class="fa fa-trash"> </span>
 					</a>

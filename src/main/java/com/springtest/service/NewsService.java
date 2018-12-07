@@ -1,5 +1,6 @@
 package com.springtest.service;
 
+import com.springtest.model.Author;
 import com.springtest.model.News;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,13 +8,15 @@ import java.util.List;
 
 public interface NewsService {
 
-    List<News> getAll();
+    <T> List<T> getAll();
+
+     <T> void save(T obj);
 
     void saveRecordFromRequest(HttpServletRequest request);
 
-    News getOne(Long id);
+    <T> T getOne(Long id);
 
-    void deleteNews(Long id);
+    void delete(Long id);
 
 
 }

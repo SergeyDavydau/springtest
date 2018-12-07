@@ -20,6 +20,12 @@ public class NewsServiceImpl implements NewsService {
         return (List<News>) newsRepository.findAll();
     }
 
+
+    @Override
+    public <T> void save(T obj) {
+       newsRepository.save((News) obj);
+    }
+
     @Override
     public void saveRecordFromRequest(HttpServletRequest request) {
         News news = new News();
@@ -41,7 +47,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void deleteNews(Long id) {
+    public void delete(Long id) {
         newsRepository.delete(id);
     }
 
