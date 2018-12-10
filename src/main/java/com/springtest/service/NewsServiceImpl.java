@@ -33,6 +33,22 @@ public class NewsServiceImpl implements NewsService {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
 
+
+        news.setTitle(title);
+        news.setContent(content);
+
+//		метод save (Один из стандартных методов всех репозиторий) кладёт объект в БД в соответствующиую этой модели таблицу
+        newsRepository.save(news);
+    }
+
+    @Override
+    public void saveEditFromRequest(HttpServletRequest request) {
+        News news = new News();
+        Long id = Long.valueOf(request.getParameter("id"));
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+
+        news.setId(id);
         news.setTitle(title);
         news.setContent(content);
 

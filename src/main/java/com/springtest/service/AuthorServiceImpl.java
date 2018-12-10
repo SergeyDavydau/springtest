@@ -4,12 +4,13 @@ import com.springtest.model.Author;
 import com.springtest.model.News;
 import com.springtest.repo.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-
-public class AuthorServiceImpl implements NewsService {
+@Service
+public class AuthorServiceImpl implements AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
 
@@ -29,9 +30,27 @@ public class AuthorServiceImpl implements NewsService {
     public void saveRecordFromRequest(HttpServletRequest request) {
         Author author = new Author();
 
-        String firstName = request.getParameter("title");
-        String secondName = request.getParameter("content");
 
+        String firstName = request.getParameter("first name");
+        String secondName = request.getParameter("secondName");
+
+
+        author.setFirstName(firstName);
+        author.setSecondsName(secondName);
+
+
+        authorRepository.save(author);
+    }
+
+    @Override
+    public void saveEditFromRequest(HttpServletRequest request) {
+        Author author = new Author();
+        Long id = Long.valueOf(request.getParameter("id"));
+
+        String firstName = request.getParameter("first name");
+        String secondName = request.getParameter("secondName");
+
+        author.setId(id);
         author.setFirstName(firstName);
         author.setSecondsName(secondName);
 

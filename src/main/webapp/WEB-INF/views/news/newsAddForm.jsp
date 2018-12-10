@@ -11,7 +11,7 @@
 
     <h3>Add news:</h3>
 
-    <form method="post" >
+    <form method="post">
         <div class="row">
             <label>Title</label>
             <br/>

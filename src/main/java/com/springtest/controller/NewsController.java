@@ -20,9 +20,7 @@ import java.util.List;
 @RequestMapping(value = "/news")
 public class NewsController {
 
-    @Autowired
-    private AuthorServiceImpl authorService;   //Не разумею як ён будзе праз адзін NewsService
-                                               // вызываць розныя метады для News i Author
+
     @Autowired
     private NewsServiceImpl newsService;
 
@@ -36,9 +34,9 @@ public class NewsController {
 
         ModelAndView modelAndView = new ModelAndView("news/newsSummary.jsp");
         List<News> data = newsService.getAll();
-        List<Author> author = authorService.getAll();
+
         modelAndView.addObject("recordsList", data);
-        modelAndView.addObject("authorList", author);
+
         return modelAndView;
     }
 
@@ -55,16 +53,16 @@ public class NewsController {
     public ModelAndView editNews(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("news/newsEdit.jsp");
         modelAndView.addObject("editNews", newsService.getOne(id));
-        modelAndView.addObject("authorName", authorService.getOne(id));
+
 
         return modelAndView;
     }
 
     @RequestMapping(value = "/newsEdit/{id}", method = RequestMethod.POST)
-    public String editNewsSave(@PathVariable("id") Long id) {
+    public String editNewsSave(@PathVariable("id") Long id,HttpServletRequest request) {
 
-        newsService.save(newsService.getOne(id));
-        authorService.save(authorService.getOne(id));
+        newsService.saveEditFromRequest(request);
+
 
         return "redirect:/news/view";
     }
