@@ -8,40 +8,44 @@
     <title></title>
 </head>
 <body>
-<table class="table">
-    <tr>
-        <td>AUTHOR ID</td>
-        <td>AUTHOR NAME</td>
-        <td>AUTHOR SECONDNAME</td>
-        <td>
-            <a title="AddAuthor" href="${DOMAIN}/author/authorAdd">
-                <span class="fa fa-plus"></span>
-            </a>
-        </td>
-    </tr>
-
-    <c:forEach items="${authorName}" var="author">
-
+<jsp:include page="../navbar.jsp"/>
+<div class="container">
+    <h3>List of author:</h3>
+    <table class="table">
         <tr>
-
-            <td >${author.id}</td>
-            <td >${author.firstName}</td>
-            <td >${author.secondsName}</td>
+            <td>Author Id</td>
+            <td>Author Name</td>
+            <td>Author Second Name</td>
             <td>
-
-
-                <a title="EditAuthor"
-                   href="${DOMAIN}/author/authorEdit/${author.id}">
-                    <span class="fa fa-pencil"> </span>
-                </a>
-                <a title="DeleteAuthor"
-                   href="${DOMAIN}/author/delete/${author.id}"
-                   onclick="return confirm('Are you sure you want to delete record?')">
-                    <span class="fa fa-trash"> </span>
+                <a title="AddAuthor" href="${DOMAIN}/author/add">
+                    <span class="fa fa-plus"></span>
                 </a>
             </td>
         </tr>
-    </c:forEach>
-</table>
+
+        <c:forEach items="${authorName}" var="author">
+
+            <tr>
+
+                <td>${author.id}</td>
+                <td>${author.firstName}</td>
+                <td>${author.secondsName}</td>
+                <td>
+
+
+                    <a title="EditAuthor"
+                       href="${DOMAIN}/author/edit/${author.id}">
+                        <span class="fa fa-pencil"> </span>
+                    </a>
+                    <a title="DeleteAuthor"
+                       href="${DOMAIN}/author/delete/${author.id}"
+                       onclick="return confirm('Are you sure you want to delete record?')">
+                        <span class="fa fa-trash"> </span>
+                    </a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

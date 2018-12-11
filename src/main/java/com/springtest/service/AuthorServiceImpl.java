@@ -1,9 +1,10 @@
 package com.springtest.service;
 
 import com.springtest.model.Author;
-import com.springtest.model.News;
+
 import com.springtest.repo.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,21 +18,16 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public List<Author> getAll() {
 
-        return  (List<Author>) authorRepository.findAll();
+        return (List<Author>) authorRepository.findAll();
     }
 
-
-    @Override
-    public <T> void save(T obj) {
-        authorRepository.save((Author)obj);
-    }
 
     @Override
     public void saveRecordFromRequest(HttpServletRequest request) {
         Author author = new Author();
 
 
-        String firstName = request.getParameter("first name");
+        String firstName = request.getParameter("firstName");
         String secondName = request.getParameter("secondName");
 
 
@@ -47,7 +43,7 @@ public class AuthorServiceImpl implements AuthorService {
         Author author = new Author();
         Long id = Long.valueOf(request.getParameter("id"));
 
-        String firstName = request.getParameter("first name");
+        String firstName = request.getParameter("firstName");
         String secondName = request.getParameter("secondName");
 
         author.setId(id);
@@ -60,10 +56,13 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Author getOne(Long id) {
-        return authorRepository.findOne(id); }
+        return authorRepository.findOne(id);
+    }
 
     @Override
     public void delete(Long id) {
         authorRepository.delete(id);
     }
+
+
 }

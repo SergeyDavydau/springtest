@@ -12,20 +12,20 @@
 
     <table class="table">
         <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Content</th>
+            <td>Id</td>
+            <td>Title</td>
+            <td>Content</td>
 
-            <th>
+            <td>
                 <a title="Add" href="${DOMAIN}/news/add">
                     <span class="fa fa-plus"></span>
                 </a>
-            </th>
+            </td>
         </tr>
 
         <c:forEach items="${recordsList}" var="record">
             <tr>
-                <td>${record.id}</td>
+               <td>${record.id}</td>
                 <td>${record.title}</td>
                 <td>${record.content}</td>
 
@@ -34,7 +34,7 @@
 
                         <%-- TODO: СДЕЛАЙ ЧТОБЫ РАБОТАЛО РЕДАКТИРОВАНИЕ--%>
                     <a title="Edit"
-                       href="${DOMAIN}/news/newsEdit/${record.id}">
+                       href="${DOMAIN}/news/edit/${record.id}">
                         <span class="fa fa-pencil"> </span>
                     </a>
 

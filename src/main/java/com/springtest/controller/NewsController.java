@@ -49,7 +49,7 @@ public class NewsController {
     }
 
     //Рэдакціраванне  навін
-    @RequestMapping(value = "/newsEdit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editNews(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("news/newsEdit.jsp");
         modelAndView.addObject("editNews", newsService.getOne(id));
@@ -58,7 +58,7 @@ public class NewsController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/newsEdit/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editNewsSave(@PathVariable("id") Long id,HttpServletRequest request) {
 
         newsService.saveEditFromRequest(request);

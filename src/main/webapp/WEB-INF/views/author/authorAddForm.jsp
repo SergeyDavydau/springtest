@@ -7,28 +7,36 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<jsp:include page="../header.jsp"/>
 <head>
     <title>Add Author</title>
 </head>
 <body>
-   <form method="Post">
-       <Table>
-           <td style="padding-right: 40">
-               <div class="row" margin=6>
-                   <label>Author Name</label>
-                   <br/>
-                   <input type="text" name="first name" value="${authorName.firstName}"/>
-               </div>
-           </td>
-           <td>
-               <div class="row">
-                   <label>Second Name</label>
-                   <br/>
-                   <input type="text" name="secondName" value="${authorName.secondName}"/>
-               </div>
-           </td>
-       </Table>
-       <button type="submit" value="Save">Save</button>
-   </form>
+<jsp:include page="../navbar.jsp"/>
+<div class="container">
+    <form method="Post">
+        <table>
+            <tr>
+                <td></td>
+                <div class="row" margin=6>
+                    <label>Author Name</label>
+                    <br/>
+                    <input type="text" name="firstName" value="${authorName.firstName}"/>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row">
+                        <label>Second Name</label>
+                        <br/>
+                        <input type="text" name="secondName" value="${authorName.secondName}"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" value="Save">Save</button>
+    </form>
+</div>
 </body>
 </html>

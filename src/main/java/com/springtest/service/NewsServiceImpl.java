@@ -22,11 +22,6 @@ public class NewsServiceImpl implements NewsService {
 
 
     @Override
-    public <T> void save(T obj) {
-       newsRepository.save((News) obj);
-    }
-
-    @Override
     public void saveRecordFromRequest(HttpServletRequest request) {
         News news = new News();
 

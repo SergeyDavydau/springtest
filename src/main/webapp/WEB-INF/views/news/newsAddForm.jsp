@@ -12,36 +12,31 @@
     <h3>Add news:</h3>
 
     <form method="post">
-        <div class="row">
-            <label>Title</label>
-            <br/>
-            <input type="text" name="title" value="${editNews.title}"/>
-        </div>
-        <br/>
-
-        <div class="row">
-            <label>Content</label>
-            <br/>
-            <input type="text" name="content" value="${editNews.content}"/>
-        </div>
-        <br/>
-        <Table>
-            <td style="padding-right: 40">
-                <div class="row" margin=6>
-                    <label>Author Name</label>
-                    <br/>
-                    <input type="text" name="first name" value="${authorName.firstName}"/>
-                </div>
-            </td>
-            <td>
+        <table>
+            <tr>
                 <div class="row">
-                    <label>Second Name</label>
+
+                    <td><label>Title</label></td>
                     <br/>
-                    <input type="text" name="secondName" value="${authorName.secondName}"/>
+
+                    <td><input type="text" name="title" value="${editNews.title}"/></td>
                 </div>
+                <br/>
+            </tr>
+            <tr>
+                <div class="row">
+                    <td><label>Content</label></td>
+                    <br/>
+                    <td><input type="text" name="content" value="${editNews.content}"/></td>
+                </div>
+                <br/>
+
+
+            </tr>
+            <td>
+                <button type="submit" value="Save">Save</button>
             </td>
-        </Table>
-        <button type="submit" value="Save">Save</button>
+        </table>
     </form>
 </div>
 </body>

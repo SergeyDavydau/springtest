@@ -23,14 +23,7 @@ public class AuthorController {
     @Autowired
     AuthorServiceImpl authorService;
 
-    @RequestMapping(value = "/authorView/{id}", method = RequestMethod.POST)
-    public String addAuthor(HttpServletRequest request) {
-        authorService.saveRecordFromRequest(request);
-        return "/AuthorView";
-
-    }
-
-    @RequestMapping(value = "/authorView", method = RequestMethod.GET)
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
     public ModelAndView authorView() {
         ModelAndView authorViews = new ModelAndView("author/authorView.jsp");
         List<Author> authors = authorService.getAll();
@@ -39,31 +32,31 @@ public class AuthorController {
 
     }
 
-    @RequestMapping(value ="/authorAdd", method=RequestMethod.GET)
+    @RequestMapping(value ="/add", method=RequestMethod.GET)
     public ModelAndView modelAndView (){
         ModelAndView author = new ModelAndView("author/authorAddForm.jsp");
         return author;
     }
-    @RequestMapping(value ="/authorAdd", method=RequestMethod.POST)
+    @RequestMapping(value ="/add", method=RequestMethod.POST)
     public String model (HttpServletRequest request){
         authorService.saveRecordFromRequest(request);
-        return "redirect:/author/authorView";
+        return "redirect:/author/view";
     }
-    @RequestMapping(value ="/authorEdit/{id}", method=RequestMethod.GET)
+    @RequestMapping(value ="/edit/{id}", method=RequestMethod.GET)
     public ModelAndView editRequest (@PathVariable("id") Long id){
         ModelAndView modelEdit = new ModelAndView("author/authorEdit.jsp");
         modelEdit.addObject("authorName",authorService.getOne(id));
         return modelEdit;
     }
-    @RequestMapping(value ="/authorEdit/{id}", method=RequestMethod.POST)
+    @RequestMapping(value ="/edit/{id}", method=RequestMethod.POST)
     public String editResponse(@PathVariable("id") Long id,HttpServletRequest request){
         authorService.saveEditFromRequest(request);
-        return "redirect:/author/authorView";
+        return "redirect:/author/view";
     }
     @RequestMapping(value ="/delete/{id}", method=RequestMethod.GET)
     public String delete(@PathVariable("id") Long id){
         authorService.delete(id);
-        return"redirect:/author/authorView";
+        return"redirect:/author/view";
     }
 
 }
