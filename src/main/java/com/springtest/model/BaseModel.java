@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class BaseModel<ID extends Serializable> implements Cloneable {	//так как id содержится во всех моделях, выносим отдельный класс (!!!не entity!!!) от которго будем наследоваться
+public abstract class BaseModel<ID extends Serializable> {
 
 	@Id
 	@Column(name = "id", nullable = false)

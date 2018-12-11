@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 
 <html>
 <jsp:include page="../header.jsp"/>
@@ -28,17 +27,11 @@
                <td>${record.id}</td>
                 <td>${record.title}</td>
                 <td>${record.content}</td>
-
                 <td>
-
-
-                        <%-- TODO: СДЕЛАЙ ЧТОБЫ РАБОТАЛО РЕДАКТИРОВАНИЕ--%>
                     <a title="Edit"
                        href="${DOMAIN}/news/edit/${record.id}">
                         <span class="fa fa-pencil"> </span>
                     </a>
-
-                        <%-- TODO: СДЕЛАЙ ЧТОБЫ РАБОТАЛО УДАЛЕНИЕ (вызов в коде снизу)--%>
                     <a title="Delete"
                        href="${DOMAIN}/news/delete/${record.id}"
                        onclick="return confirm('Are you sure you want to delete record?')">
@@ -47,9 +40,7 @@
                 </td>
             </tr>
         </c:forEach>
-
     </table>
-
 
 </div>
 </body>
