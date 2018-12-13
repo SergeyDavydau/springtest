@@ -14,6 +14,7 @@
             <td>Id</td>
             <td>Title</td>
             <td>Content</td>
+            <td>Author</td>
 
             <td>
                 <a title="Add" href="${DOMAIN}/news/add">
@@ -27,6 +28,7 @@
                <td>${record.id}</td>
                 <td>${record.title}</td>
                 <td>${record.content}</td>
+                <td>${record.author}</td>
                 <td>
                     <a title="Edit"
                        href="${DOMAIN}/news/edit/${record.id}">

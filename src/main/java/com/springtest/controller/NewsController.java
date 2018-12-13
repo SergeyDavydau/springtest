@@ -49,6 +49,7 @@ public class NewsController {
     public ModelAndView editNews(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("news/newsEdit.jsp");
         modelAndView.addObject("editNews", newsService.getOne(id));
+        modelAndView.addObject("options", newsService.getComboboxOptions());	// доступные варианты для выпадающего списка
         return modelAndView;
     }
 

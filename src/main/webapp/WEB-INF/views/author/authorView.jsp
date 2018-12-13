@@ -12,9 +12,9 @@
     <h3>List of author:</h3>
     <table class="table">
         <tr>
-            <td>Author Id</td>
-            <td>Author Name</td>
-            <td>Author Second Name</td>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Second Name</td>
             <td>
                 <a title="AddAuthor" href="${DOMAIN}/author/add">
                     <span class="fa fa-plus"></span>
@@ -28,7 +28,7 @@
 
                 <td>${author.id}</td>
                 <td>${author.firstName}</td>
-                <td>${author.secondsName}</td>
+                <td>${author.secondName}</td>
                 <td>
 
 

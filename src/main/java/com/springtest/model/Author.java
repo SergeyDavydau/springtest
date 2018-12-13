@@ -1,15 +1,18 @@
 package com.springtest.model;
 
-import javax.persistence.*;
-import java.security.PrivateKey;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table
 public class Author extends BaseModel<Long> {
-    @Column
+
+    @Column(name = "first_name")
     private String firstName;
-    @Column
-    private String secondsName;
+
+    @Column(name = "second_name")
+    private String secondName;
 
     public String getFirstName() {
         return firstName;
@@ -19,13 +22,16 @@ public class Author extends BaseModel<Long> {
         this.firstName = firstName;
     }
 
-    public String getSecondsName() {
-        return secondsName;
+    public String getSecondName() {
+        return secondName;
     }
 
-    public void setSecondsName(String secondsName) {
-        this.secondsName = secondsName;
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
-
+    @Override
+    public String toString() {
+        return firstName + (secondName != null ? " " + secondName.charAt(0) + "." : "");
+    }
 }

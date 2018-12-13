@@ -22,7 +22,7 @@
                 <div class="row">
                     <label>Second Name</label>
                     <br/>
-                    <input type="text" name="secondName" value="${authorName.secondsName}"/>
+                    <input type="text" name="secondName" value="${authorName.secondName}"/>
                 </div>
             </tr>
 

@@ -9,24 +9,43 @@
 <div class="container">
 
     <h3>Add news:</h3>
+	<br>
 
     <form method="post">
+
+		<input type="hidden" name="id" value="${editNews.id}"/>
+
         <div class="row">
-            <label>Title</label>
-            <input type="hidden" name="id" value="${editNews.id}"/>
-            <br/>
-            <input type="text" name="title" value="${editNews.title}"/>
+			<div class="col-md-8">
+				<label>Title</label>
+				<input class="form-control" type="text" name="title" value="${editNews.title}"/>
+			</div>
+			<div class="col-md-4">
+				<label>Author</label>
+				<select class="form-control" name="author">
+					<option></option>
+
+					<c:forEach items="${options.authors}" var="opt">
+						<option value="${opt.id}" <c:if test="${editNews.author.id == opt.id}"> selected </c:if>>
+								${opt}
+						</option>
+					</c:forEach>
+				</select>
+			</div>
         </div>
         <br/>
 
         <div class="row">
-            <label>Content</label>
-            <br/>
-            <input type="text" name="content" value="${editNews.content}"/>
+			<div class="col-md-12">
+            	<label>Content</label>
+				<textarea maxlength="4096" rows="4" class="form-control" type="text" name="content"> ${editNews.content}</textarea>
+			</div>
         </div>
-        <br/>
 
-        <button type="submit" value="Save">Save</button>
+		<br>
+		<div class="row">
+        	<button class="btn btn-primary btn-large" type="submit" value="Save">Save</button>
+		</div>
     </form>
 </div>
 </body>

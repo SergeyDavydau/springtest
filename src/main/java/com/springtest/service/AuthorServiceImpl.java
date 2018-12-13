@@ -1,10 +1,8 @@
 package com.springtest.service;
 
 import com.springtest.model.Author;
-
 import com.springtest.repo.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +30,7 @@ public class AuthorServiceImpl implements AuthorService {
 
 
         author.setFirstName(firstName);
-        author.setSecondsName(secondName);
+        author.setSecondName(secondName);
 
 
         authorRepository.save(author);
@@ -48,7 +46,7 @@ public class AuthorServiceImpl implements AuthorService {
 
         author.setId(id);
         author.setFirstName(firstName);
-        author.setSecondsName(secondName);
+        author.setSecondName(secondName);
 
 
         authorRepository.save(author);
