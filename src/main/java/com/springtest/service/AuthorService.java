@@ -4,6 +4,7 @@ import com.springtest.model.Author;
 
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -18,4 +19,5 @@ public interface AuthorService {
 
     void delete(Long id);
 
+    HashMap<String, List<Object>> getComboboxOptions();
 }

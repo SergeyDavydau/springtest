@@ -22,8 +22,8 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public List<News> getAll() {
-//		метод findAll (Один из стандартных методов всех репозиторий) возвращает все записи из соответствующей модели таблице из БД
-        return (List<News>) newsRepository.findAll();
+
+        return newsRepository.findAll();
     }
 
 
@@ -38,7 +38,7 @@ public class NewsServiceImpl implements NewsService {
         news.setTitle(title);
         news.setContent(content);
 
-//		метод save (Один из стандартных методов всех репозиторий) кладёт объект в БД в соответствующиую этой модели таблицу
+
         newsRepository.save(news);
     }
 
@@ -57,7 +57,7 @@ public class NewsServiceImpl implements NewsService {
         news.setContent(content);
         news.setAuthor(author);
 
-//		метод save (Один из стандартных методов всех репозиторий) кладёт объект в БД в соответствующиую этой модели таблицу
+
         newsRepository.save(news);
     }
 

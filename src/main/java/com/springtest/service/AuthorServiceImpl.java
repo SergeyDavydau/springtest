@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -13,10 +15,13 @@ public class AuthorServiceImpl implements AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
 
+    @Autowired
+    private NewsService newsService;
+
     @Override
     public List<Author> getAll() {
 
-        return (List<Author>) authorRepository.findAll();
+        return authorRepository.findAll();
     }
 
 
@@ -60,6 +65,15 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public void delete(Long id) {
         authorRepository.delete(id);
+    }
+
+    @Override
+    public HashMap<String, List<Object>> getComboboxOptions() {
+        HashMap<String, List<Object>> options = new HashMap<>();
+        List<Object> news = new ArrayList<>(newsService.getAll());
+
+        options.put("news", news);
+        return options;
     }
 
 
