@@ -74,8 +74,8 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public HashMap<String, List<Object>> getComboboxOptions() {	//тут будут все доступные варианты для разных выпадающих списков при редактировании новостей
-        HashMap<String, List<Object>> options = new HashMap<>();
-        List<Object> authors = new ArrayList<>(authorService.getAll());
+        HashMap<String, List<Object>> options = new HashMap<String, List<Object>>();
+        List<Object> authors = new ArrayList<Object>(authorService.getAll());
 
         options.put("authors", authors);
         return options;

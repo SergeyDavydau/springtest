@@ -42,8 +42,5 @@ public class News extends BaseModel<Long> {	//наследуем от класс
 		this.author = author;
 	}
 
-    @Override
-    public String toString() {
-        return title + " " + content;
-    }
+
 }

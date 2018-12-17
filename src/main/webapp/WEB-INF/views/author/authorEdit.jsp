@@ -29,19 +29,7 @@
             <td>
 
                 <tr>
-                    <div class="col-md-4">
-                        <label>Author</label>
-                        <select class="form-control" name="news">
-                            <option></option>
 
-                            <c:forEach items="${options.news}" var="opt">
-                                <option value="${opt.id}" <c:if
-                                        test="${authorName.news.id == opt.id}"> selected </c:if>>
-                                        ${opt}
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </div>
                 </tr>
         </Table>
         <button type="submit" value="Save">Save</button>

@@ -21,8 +21,10 @@ public class NewsController {
     private NewsService newsService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addNews() {
-        return "news/newsAddForm.jsp";
+    public ModelAndView addNews() {
+        ModelAndView modelAndView =new ModelAndView("news/newsAddForm.jsp");
+        modelAndView.addObject("options", newsService.getComboboxOptions());
+        return modelAndView;
     }
 
     @RequestMapping(value = "/view", method = RequestMethod.GET)

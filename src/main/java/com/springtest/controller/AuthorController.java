@@ -41,7 +41,7 @@ public class AuthorController {
     public ModelAndView editRequest (@PathVariable("id") Long id){
         ModelAndView modelEdit = new ModelAndView("author/authorEdit.jsp");
         modelEdit.addObject("authorName",authorService.getOne(id));
-        modelEdit.addObject("options", authorService.getComboboxOptions());
+
         return modelEdit;
     }
     @RequestMapping(value ="/edit/{id}", method=RequestMethod.POST)

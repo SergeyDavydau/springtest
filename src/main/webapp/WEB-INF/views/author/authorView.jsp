@@ -15,7 +15,7 @@
             <td>Id</td>
             <td>Name</td>
             <td>Second Name</td>
-            <td>News</td>
+
             <td>
                 <a title="AddAuthor" href="${DOMAIN}/author/add">
                     <span class="fa fa-plus"></span>
@@ -30,7 +30,7 @@
                 <td>${author.id}</td>
                 <td>${author.firstName}</td>
                 <td>${author.secondName}</td>
-                <td>${author.news}</td>
+
                 <td>
 
 

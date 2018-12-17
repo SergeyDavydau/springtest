@@ -19,5 +19,5 @@ public interface AuthorService {
 
     void delete(Long id);
 
-    HashMap<String, List<Object>> getComboboxOptions();
+
 }

@@ -21,7 +21,7 @@
                 <div class="row" margin=6>
                     <label>Author Name</label>
                     <br/>
-                    <input type="text" name="firstName" value="${authorName.firstName}"/>
+                    <input type="text" name="firstName" />
                 </div>
                 </td>
             </tr>
@@ -30,7 +30,7 @@
                     <div class="row">
                         <label>Second Name</label>
                         <br/>
-                        <input type="text" name="secondName" value="${authorName.secondName}"/>
+                        <input type="text" name="secondName"/>
                     </div>
                 </td>
             </tr>

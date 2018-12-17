@@ -67,14 +67,7 @@ public class AuthorServiceImpl implements AuthorService {
         authorRepository.delete(id);
     }
 
-    @Override
-    public HashMap<String, List<Object>> getComboboxOptions() {
-        HashMap<String, List<Object>> options = new HashMap<>();
-        List<Object> news = new ArrayList<>(newsService.getAll());
 
-        options.put("news", news);
-        return options;
-    }
 
 
 }

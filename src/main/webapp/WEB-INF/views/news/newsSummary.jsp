@@ -25,7 +25,7 @@
 
         <c:forEach items="${recordsList}" var="record">
             <tr>
-               <td>${record.id}</td>
+                <td>${record.id}</td>
                 <td>${record.title}</td>
                 <td>${record.content}</td>
                 <td>${record.author}</td>
