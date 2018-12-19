@@ -11,9 +11,9 @@
 
 
 <table>
-    <tr>${readNews.title}</tr>
-    <tr>${readNews.author}</tr>
-    <tr>${readNews.content}</tr>
+    <tr>${news.title}</tr>
+    <tr>${news.author}</tr>
+    <tr>${news.content}</tr>
 </table>
 
 </body>

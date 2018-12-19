@@ -16,19 +16,11 @@ import java.util.List;
 @RequestMapping(value = "/news")
 public class NewsController {
 
-
     @Autowired
     private NewsService newsService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public ModelAndView addNews() {
-        ModelAndView modelAndView =new ModelAndView("news/newsAddForm.jsp");
-        modelAndView.addObject("options", newsService.getComboboxOptions());
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/view", method = RequestMethod.GET)
-    public ModelAndView viewNews() {
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView summary() {
 
         ModelAndView modelAndView = new ModelAndView("news/newsSummary.jsp");
         List<News> data = newsService.getAll();
@@ -38,8 +30,15 @@ public class NewsController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public ModelAndView add() {
+        ModelAndView modelAndView =new ModelAndView("news/newsAddForm.jsp");
+        modelAndView.addObject("options", newsService.getComboboxOptions());
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String postNews(HttpServletRequest request) {
+    public String addPost(HttpServletRequest request) {
         newsService.saveRecordFromRequest(request);
 
 
@@ -48,7 +47,7 @@ public class NewsController {
 
     //Рэдакціраванне  навін
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editNews(@PathVariable("id") Long id) {
+    public ModelAndView edit(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("news/newsEdit.jsp");
         modelAndView.addObject("editNews", newsService.getOne(id));
         modelAndView.addObject("options", newsService.getComboboxOptions());	// доступные варианты для выпадающего списка
@@ -56,22 +55,22 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public String editNewsSave(@PathVariable("id") Long id, HttpServletRequest request) {
+    public String editPost(@PathVariable("id") Long id, HttpServletRequest request) {
         newsService.saveEditFromRequest(request);
         return "redirect:/news/view";
     }
 
     //Выдаденне навін
-    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-    public String deleteNews(@PathVariable("id") Long id) {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String delete(@PathVariable("id") Long id) {
         newsService.delete(id);
-        return "redirect:/news/view";
+        return "redirect:/news";
     }
 
-    @RequestMapping(value = "/news/read/{id}", method=RequestMethod.GET)
-    public ModelAndView newsRead(@PathVariable("id") Long id){
-        ModelAndView modelAndView =new ModelAndView("/news/newsViewPaqe.jsp");
-              modelAndView.addObject("readNews", newsService.getOne(id));
+    @RequestMapping(value = "/view/{id}", method=RequestMethod.GET)
+    public ModelAndView view(@PathVariable("id") Long id){
+        ModelAndView modelAndView =new ModelAndView("/news/newsView.jsp");
+        modelAndView.addObject("news", newsService.getOne(id));
         return modelAndView;
     }
 }

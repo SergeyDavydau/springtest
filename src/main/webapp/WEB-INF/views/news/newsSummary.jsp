@@ -26,10 +26,10 @@
         <c:forEach items="${recordsList}" var="record">
             <tr>
 
-                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.id}</a></td>
-                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.title}</a></td>
-                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.content}</a></td>
-                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.author}</a></td>
+                <td><a href="${DOMAIN}/news/view/${record.id}" style="color: #000000">${record.id}</a></td>
+                <td><a href="${DOMAIN}/news/view/${record.id}" style="color: #000000">${record.title}</a></td>
+                <td><a href="${DOMAIN}/news/view/${record.id}" style="color: #000000">${record.content}</a></td>
+                <td><a href="${DOMAIN}/news/view/${record.id}" style="color: #000000">${record.author}</a></td>
 
                 <td>
                     <a title="Edit"

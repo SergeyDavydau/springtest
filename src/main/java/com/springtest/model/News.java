@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class News extends BaseModel<Long> {	//наследуем от класса содержащего в себе Id
+public class News extends BaseModel<Long> {    //наследуем от класса содержащего в себе Id
 
 	@Column
 	private String title;
@@ -15,19 +15,19 @@ public class News extends BaseModel<Long> {	//наследуем от класс
 	@Column(length = 4096)
 	private String content;
 
-    @Column(name ="quantity_view", nullable =false )
-    private Long quantityRead;
+	@Column(name = "views_amount", nullable = false)
+	private Long viewsAmount;
 
 	@ManyToOne
 	private Author author;
 
-    public Long getQuantityRead() {
-        return quantityRead;
-    }
+	public Long getViewsAmount() {
+		return viewsAmount;
+	}
 
-    public void setQuantityRead(Long index) {
-        this.quantityRead = index;
-    }
+	public void setViewsAmount(Long viewsAmount) {
+		this.viewsAmount = viewsAmount;
+	}
 
 	public String getTitle() {
 		return title;
@@ -52,6 +52,4 @@ public class News extends BaseModel<Long> {	//наследуем от класс
 	public void setAuthor(Author author) {
 		this.author = author;
 	}
-
-
 }
