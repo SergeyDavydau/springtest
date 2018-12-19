@@ -15,8 +15,19 @@ public class News extends BaseModel<Long> {	//наследуем от класс
 	@Column(length = 4096)
 	private String content;
 
+    @Column(name ="quantity_view", nullable =false )
+    private Long quantityRead;
+
 	@ManyToOne
 	private Author author;
+
+    public Long getQuantityRead() {
+        return quantityRead;
+    }
+
+    public void setQuantityRead(Long index) {
+        this.quantityRead = index;
+    }
 
 	public String getTitle() {
 		return title;

@@ -67,4 +67,11 @@ public class NewsController {
         newsService.delete(id);
         return "redirect:/news/view";
     }
+
+    @RequestMapping(value = "/news/read/{id}", method=RequestMethod.GET)
+    public ModelAndView newsRead(@PathVariable("id") Long id){
+        ModelAndView modelAndView =new ModelAndView("/news/newsViewPaqe.jsp");
+              modelAndView.addObject("readNews", newsService.getOne(id));
+        return modelAndView;
+    }
 }

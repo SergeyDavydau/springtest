@@ -14,7 +14,7 @@
             <td>Id</td>
             <td>Title</td>
             <td>Content</td>
-            <td>Author</td>
+                <td>Author</td>
 
             <td>
                 <a title="Add" href="${DOMAIN}/news/add">
@@ -25,10 +25,12 @@
 
         <c:forEach items="${recordsList}" var="record">
             <tr>
-                <td>${record.id}</td>
-                <td>${record.title}</td>
-                <td>${record.content}</td>
-                <td>${record.author}</td>
+
+                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.id}</a></td>
+                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.title}</a></td>
+                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.content}</a></td>
+                <td><a href="${DOMAIN}/news/read/${record.id}" style="color: #000000">${record.author}</a></td>
+
                 <td>
                     <a title="Edit"
                        href="${DOMAIN}/news/edit/${record.id}">

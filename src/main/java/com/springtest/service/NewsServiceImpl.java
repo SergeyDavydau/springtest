@@ -4,6 +4,7 @@ import com.springtest.model.Author;
 import com.springtest.model.News;
 import com.springtest.repo.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -80,4 +81,11 @@ public class NewsServiceImpl implements NewsService {
         options.put("authors", authors);
         return options;
     }
+
+//    public String incrementNews(Long id){
+//
+//
+//    }
+
+
 }
