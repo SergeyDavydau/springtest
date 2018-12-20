@@ -15,7 +15,7 @@ public interface NewsService {
 
     void saveEditFromRequest(HttpServletRequest request);
 
-    News getOne(Long id);
+    News getOne(Long id, Boolean incrementViews);
 
     void delete(Long id);
 

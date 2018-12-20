@@ -13,15 +13,15 @@
     <br/>
     <br/>
     <tr>
-        <td align="center">${news.title}</td>
+        <td align="center">Title: ${news.title}</td>
     </tr>
 
     <tr>
-        <td  align="center">Author:${news.author}</td>
+        <td  align="center">Author: ${news.author}</td>
     </tr>
 
     <tr>
-        <td  align="center">viewsAmount:${news.viewsAmount}</td>
+        <td  align="center">Views: ${news.viewsAmount}</td>
     </tr>
 
     <tr>

@@ -4,8 +4,6 @@ import com.springtest.model.Author;
 import com.springtest.model.News;
 import com.springtest.repo.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +14,6 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
 
-    @Qualifier("newsRepository")
     @Autowired
     private NewsRepository newsRepository;
     @Autowired
@@ -39,7 +36,6 @@ public class NewsServiceImpl implements NewsService {
         news.setTitle(title);
         news.setContent(content);
 
-
         newsRepository.save(news);
     }
 
@@ -58,12 +54,14 @@ public class NewsServiceImpl implements NewsService {
         news.setContent(content);
         news.setAuthor(author);
 
-
         newsRepository.save(news);
     }
 
     @Override
-    public News getOne(Long id) {
+    public News getOne(Long id, Boolean incrementViews) {
+        if (incrementViews) {
+            newsRepository.increaseViewsAmount(id);
+        }
         return newsRepository.findOne(id);
 
     }
@@ -81,11 +79,4 @@ public class NewsServiceImpl implements NewsService {
         options.put("authors", authors);
         return options;
     }
-
-//    public String incrementNews(Long id){
-//
-//
-//    }
-
-
 }

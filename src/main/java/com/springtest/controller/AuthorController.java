@@ -1,11 +1,8 @@
 package com.springtest.controller;
 
 import com.springtest.model.Author;
-import com.springtest.repo.AuthorRepository;
 import com.springtest.service.AuthorServiceImpl;
-import com.springtest.service.NewsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +19,6 @@ public class AuthorController {
     @Autowired
     private AuthorServiceImpl authorService;
 
-    @Qualifier("authorRepository")
-    @Autowired
-    private AuthorRepository authorRepository;
-
-
     @RequestMapping( method = RequestMethod.GET)
     public ModelAndView authorView() {
         ModelAndView authorViews = new ModelAndView("author/authorView.jsp");
@@ -40,6 +32,7 @@ public class AuthorController {
     public ModelAndView modelAndView (){
         return new ModelAndView("author/authorAddForm.jsp");
     }
+
     @RequestMapping(value ="/add", method=RequestMethod.POST)
     public String model (HttpServletRequest request){
         authorService.saveRecordFromRequest(request);
@@ -48,8 +41,8 @@ public class AuthorController {
     @RequestMapping(value ="/edit/{id}", method=RequestMethod.GET)
     public ModelAndView editRequest (@PathVariable("id") Long id){
         ModelAndView modelEdit = new ModelAndView("author/authorEdit.jsp");
-        modelEdit.addObject("authorName",authorService.getOne(id));
-        modelEdit.addObject("authorNews",authorRepository.getNewsForAuthor(id));
+        modelEdit.addObject("authorName", authorService.getOne(id));
+        modelEdit.addObject("authorNews", authorService.getNewsByAuthor(id));
 
         return modelEdit;
     }
