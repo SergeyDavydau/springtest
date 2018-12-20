@@ -4,6 +4,8 @@ import com.springtest.model.News;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.management.QueryEval;
+
 @Repository
 public interface NewsRepository extends BaseRepository<News> {
 

@@ -4,7 +4,8 @@ import com.springtest.model.Author;
 import com.springtest.model.News;
 import com.springtest.repo.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +16,9 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
 
+    @Qualifier("newsRepository")
     @Autowired
     private NewsRepository newsRepository;
-
     @Autowired
     private AuthorService authorService;
 
@@ -26,7 +27,6 @@ public class NewsServiceImpl implements NewsService {
 
         return newsRepository.findAll();
     }
-
 
     @Override
     public void saveRecordFromRequest(HttpServletRequest request) {
@@ -74,7 +74,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public HashMap<String, List<Object>> getComboboxOptions() {	//тут будут все доступные варианты для разных выпадающих списков при редактировании новостей
+    public HashMap<String, List<Object>> getComboboxOptions() {    //тут будут все доступные варианты для разных выпадающих списков при редактировании новостей
         HashMap<String, List<Object>> options = new HashMap<String, List<Object>>();
         List<Object> authors = new ArrayList<Object>(authorService.getAll());
 

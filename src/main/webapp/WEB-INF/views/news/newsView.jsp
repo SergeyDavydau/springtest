@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -11,9 +10,25 @@
 
 
 <table>
-    <tr>${news.title}</tr>
-    <tr>${news.author}</tr>
-    <tr>${news.content}</tr>
+    <br/>
+    <br/>
+    <tr>
+        <td align="center">${news.title}</td>
+    </tr>
+
+    <tr>
+        <td  align="center">Author:${news.author}</td>
+    </tr>
+
+    <tr>
+        <td  align="center">viewsAmount:${news.viewsAmount}</td>
+    </tr>
+
+    <tr>
+        <td  align="center">${news.content}</td>
+    </tr>
+
+
 </table>
 
 </body>

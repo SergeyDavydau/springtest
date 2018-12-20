@@ -2,6 +2,6 @@
 
 	<a class="navbar-brand" href="/">Content Management System</a>
 	<a class="navbar-link" href="/news">View news</a>
-    <a class="navbar-link" href="/author/view">View authors</a>
+    <a class="navbar-link" href="/author">View authors</a>
 
 </nav>

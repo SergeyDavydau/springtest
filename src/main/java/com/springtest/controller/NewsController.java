@@ -1,8 +1,10 @@
 package com.springtest.controller;
 
 import com.springtest.model.News;
+import com.springtest.repo.NewsRepository;
 import com.springtest.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,9 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/news")
 public class NewsController {
+    @Qualifier("newsRepository")
+    @Autowired
+    private NewsRepository newsRepository;
 
     @Autowired
     private NewsService newsService;
@@ -69,6 +74,7 @@ public class NewsController {
 
     @RequestMapping(value = "/view/{id}", method=RequestMethod.GET)
     public ModelAndView view(@PathVariable("id") Long id){
+//        newsRepository.increaseViewsAmount(id);
         ModelAndView modelAndView =new ModelAndView("/news/newsView.jsp");
         modelAndView.addObject("news", newsService.getOne(id));
         return modelAndView;
