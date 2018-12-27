@@ -1,35 +1,58 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <jsp:include page="../header.jsp"/>
-<head>
-    <title></title>
-</head>
 <body>
 <jsp:include page="../navbar.jsp"/>
 
+<div class="container">
+    <br>
 
-<table>
+    <h3>news:</h3>
+    <br>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>Title</label>
+            <text class="form-control" type="text"/>
+            ${news.title}
+        </div>
+        <div class="col-md-2">
+            <label>Views</label>
+            <text class="form-control" type="text"/>
+            ${news.viewsAmount}
+        </div>
+
+        <div class="col-md-4">
+            <label>Author</label>
+            <text class="form-control"/>
+            ${news.author}
+        </div>
+    </div>
     <br/>
-    <br/>
-    <tr>
-        <td align="center">Title: ${news.title}</td>
-    </tr>
 
-    <tr>
-        <td  align="center">Author: ${news.author}</td>
-    </tr>
+    <div class="row">
+        <div class="col-md-12">
+            <label>Content</label>
+            <textarea maxlength="4096" rows="4" class="form-control" type="text"
+                      name="content">${news.content}</textarea>
+        </div>
+    </div>
 
-    <tr>
-        <td  align="center">Views: ${news.viewsAmount}</td>
-    </tr>
-
-    <tr>
-        <td  align="center">${news.content}</td>
-    </tr>
+    <br>
 
 
-</table>
-
+</div>
 </body>
 </html>
+<script src="${webappRoot}/resources/js/jquery-1.12.3.min.js"></script>
+
+
+
+
+
+
+
+

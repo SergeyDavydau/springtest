@@ -5,7 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.List;
-     @NoRepositoryBean
+
+@NoRepositoryBean
 public interface BaseRepository<T> extends CrudRepository<T, Long> {
 
 

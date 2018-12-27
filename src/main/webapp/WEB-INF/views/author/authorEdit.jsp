@@ -9,6 +9,7 @@
 
 <jsp:include page="../navbar.jsp"/>
 <div class="container">
+    <br>
     <form method="post">
         <Table>
             <tr style=padding-right:40px>
@@ -32,24 +33,25 @@
 
                 </tr>
         </Table>
-        <table border="12">
-            <br/>
-            <tr>
-                <c:forEach items="${authorNews}" var="authorNews">
-            <td><a href="${DOMAIN}/news/view/${authorNews.id}" style="color: #000000">authorNews.title</a></td>
-            <td><a href="${DOMAIN}/news/view/${authorNews.id}" style="color: #000000">authorNews.viewsAmount</a></td>
-                </c:forEach>
 
-            </tr>
-
-
-
-
-
-
-        </table>
         <button type="submit" value="Save">Save</button>
     </form>
+    <table border="12">
+        <br/>
+        <tr>
+            <c:forEach items="${authorNews}" var="authorNews">
+                <td><a href="${DOMAIN}/news/view/${authorNews.id}" style="color: #000000">${authorNews.title}</a></td>
+                <td><a href="${DOMAIN}/news/view/${authorNews.id}" style="color: #000000">${authorNews.viewsAmount}</a></td>
+            </c:forEach>
+
+        </tr>
+
+
+
+
+
+
+    </table>
 </div>
 </body>
 </html>

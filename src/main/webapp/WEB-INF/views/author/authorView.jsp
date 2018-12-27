@@ -9,6 +9,7 @@
 <body>
 <jsp:include page="../navbar.jsp"/>
 <div class="container">
+    <br>
     <h3>List of author:</h3>
     <table class="table">
         <tr>

@@ -30,6 +30,8 @@ public interface NewsRepository extends BaseRepository<News> {
 	List<News> findByAuthor(Long authorId);
 
 	// Native Query (на обычном SQL)
-	@Query(value = "SELECT * FROM News n WHERE n.author_id = ?1", nativeQuery = true)
+	@Query(value = "SELECT n FROM News n WHERE n.author_id = ?1", nativeQuery = true)
 	List<News> findByAuthorNative(Long authorId);
+
+
 }

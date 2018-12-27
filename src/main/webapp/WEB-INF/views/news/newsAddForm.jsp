@@ -7,18 +7,19 @@
 <jsp:include page="../navbar.jsp"/>
 
 <div class="container">
+    <br>
 
     <h3>Add news:</h3>
     <br>
 
     <form method="post">
 
-        <input type="hidden" name="id" />
+        <input type="hidden" name="id"/>
 
         <div class="row">
             <div class="col-md-8">
                 <label>Title</label>
-                <input class="form-control" type="text" name="title" />
+                <input class="form-control" type="text" name="title"/>
             </div>
             <div class="col-md-4">
                 <label>Author</label>

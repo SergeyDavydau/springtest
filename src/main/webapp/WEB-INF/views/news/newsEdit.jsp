@@ -7,6 +7,7 @@
 <jsp:include page="../navbar.jsp"/>
 
 <div class="container">
+    <br>
 
     <h3>Edit news:</h3>
     <br>

@@ -6,6 +6,7 @@
 <body>
 <jsp:include page="../navbar.jsp"/>
 <div class="container">
+    <br>
 
     <h3>List of news:</h3>
 
@@ -14,7 +15,7 @@
             <td>Id</td>
             <td>Title</td>
             <td>Content</td>
-                <td>Author</td>
+            <td>Author</td>
 
             <td>
                 <a title="Add" href="${DOMAIN}/news/add">

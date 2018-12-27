@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sazon_sa
-  Date: 10.12.18
-  Time: 17:02
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="../header.jsp"/>
@@ -13,6 +7,7 @@
 </head>
 <body>
 <jsp:include page="../navbar.jsp"/>
+<br>
 <div class="container">
     <form method="Post">
         <table>
