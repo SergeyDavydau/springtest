@@ -1,6 +1,7 @@
 package com.springtest.controller;
 
 import com.springtest.model.News;
+import com.springtest.repo.CommentRepository;
 import com.springtest.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class NewsController {
 
     @Autowired
     private NewsService newsService;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView summary() {
@@ -71,6 +75,7 @@ public class NewsController {
     public ModelAndView view(@PathVariable("id") Long id){
         ModelAndView modelAndView = new ModelAndView("/news/newsView.jsp");
         modelAndView.addObject("news", newsService.getOne(id, true));
+        modelAndView.addObject("comments", commentRepository.findByNewsId(id));
         return modelAndView;
     }
 }

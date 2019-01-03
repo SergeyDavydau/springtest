@@ -42,7 +42,28 @@
     </div>
 
     <br>
+    <br>
+    <br>
 
+    <h5> Comments </h5>
+    <table width="100%">
+        <c:forEach items="${comments}" var="comment">
+            <tr style="height: 80px">
+                <td style="width: 10%"><b>${comment.date}</b></td>
+                <td style="width: 60%">${comment.content}</td>
+                <td style="width: 10%; cursor: pointer;"><span class="fa fa-thumbs-up"></span> ${comment.likesCount}</td>
+                <td style="width: 10%; cursor: pointer;"><span class="fa fa-thumbs-down"></span> ${comment.dislikesCount}</td>
+            </tr>
+        </c:forEach>
+        <tr>
+            <td colspan="3">
+                <input class="form-control" style="width: 100%;" type="text" placeholder="Enter your comment...">
+            </td>
+            <td>
+                <button class="form-control"> Post </button>
+            </td>
+        </tr>
+    </table>
 
 </div>
 </body>
