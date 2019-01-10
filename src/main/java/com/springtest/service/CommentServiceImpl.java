@@ -43,4 +43,13 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findByNewsId(Long id) {
         return commentRepository.findByNewsId(id);
     }
+
+    public void like(Long idComment){
+
+      commentRepository.likeUP(idComment);
+    }
+    public void dislike(Long idComment){
+
+        commentRepository.dislike(idComment);
+    }
 }

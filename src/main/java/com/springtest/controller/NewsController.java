@@ -22,10 +22,9 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
-
     @Autowired
     private CommentServiceImpl commentServiceImpl;
-    @Qualifier("commentRepository")
+
 
 
 
@@ -94,5 +93,15 @@ public class NewsController {
         commentServiceImpl.saveEditFromRequest(request,id);
         String a =Long.toString(id);
         return "redirect:/news/view/"+a;
+    }
+    @RequestMapping(value = "/news/like/{newsId}/{commentId}", method = RequestMethod.GET)
+    public String likeUp (@PathVariable("newsId") Long newsId,@PathVariable ("commentId")Long commentId){
+        commentServiceImpl.like(commentId);
+                return "redirect:/news/view/"+newsId;
+    }
+    @RequestMapping(value = "/news/disLike/{newsId}/{commentId}", method = RequestMethod.GET)
+    public String dislikeUp (@PathVariable("newsId") Long newsId,@PathVariable ("commentId")Long commentId){
+        commentServiceImpl.dislike(commentId);
+        return "redirect:/news/view/"+newsId;
     }
 }

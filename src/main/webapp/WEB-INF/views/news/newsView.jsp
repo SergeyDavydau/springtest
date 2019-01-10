@@ -52,14 +52,14 @@
             <tr style="height: 80px">
                 <td style="width: 10%"><b>${comment.date}</b></td>
                 <td style="width: 60%">${comment.content}</td>
-                <td style="width: 10%; cursor: pointer;"><span class="fa fa-thumbs-up"></span> ${comment.likesCount}</td>
-                <td style="width: 10%; cursor: pointer;"><span class="fa fa-thumbs-down"></span> ${comment.dislikesCount}</td>
+              <td style="width: 10%; cursor: pointer;"> <a  href="${DOMAIN}/news/like/${news.id}/${comment.id}" ><span class="fa fa-thumbs-up"></span> ${comment.likesCount}</a></td>
+              <td style="width: 10%; cursor: pointer;"> <a  href="${DOMAIN}/news/disLike/${news.id}/${comment.id}" ><span class="fa fa-thumbs-down"></span> ${comment.dislikesCount}</a></td>
             </tr>
         </c:forEach>
         <tr>
             <form method="post">
                 <td colspan="3">
-                    <input class="form-control" name="" style="width: 100%;" type="text" placeholder="Enter your comment...">
+                    <input class="form-control" name="comment" style="width: 100%;" type="text" placeholder="Enter your comment...">
                 </td>
                 <td>
                     <button class="form-control" type="submit"> Post</button>
