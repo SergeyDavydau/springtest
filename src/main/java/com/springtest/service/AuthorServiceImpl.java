@@ -5,6 +5,7 @@ import com.springtest.model.News;
 import com.springtest.repo.AuthorRepository;
 import com.springtest.repo.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +14,11 @@ import java.util.List;
 @Service
 public class AuthorServiceImpl implements AuthorService {
 
+    @Qualifier("authorRepository")
     @Autowired
     private AuthorRepository authorRepository;
 
+    @Qualifier("newsRepository")
     @Autowired
     private NewsRepository newsRepository;
 

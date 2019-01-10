@@ -2,8 +2,10 @@ package com.springtest.controller;
 
 import com.springtest.model.News;
 import com.springtest.repo.CommentRepository;
+import com.springtest.service.CommentServiceImpl;
 import com.springtest.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +22,16 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+
     @Autowired
-    private CommentRepository commentRepository;
+    private CommentServiceImpl commentServiceImpl;
+    @Qualifier("commentRepository")
+
+
+
+
+
+
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView summary() {
@@ -46,7 +56,7 @@ public class NewsController {
         newsService.saveRecordFromRequest(request);
 
 
-        return "redirect:/news/view";
+        return "redirect:/news";
     }
 
     //Рэдакціраванне  навін
@@ -61,7 +71,7 @@ public class NewsController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editPost(@PathVariable("id") Long id, HttpServletRequest request) {
         newsService.saveEditFromRequest(request);
-        return "redirect:/news/view";
+        return "redirect:/news";
     }
 
     //Выдаденне навін
@@ -75,7 +85,14 @@ public class NewsController {
     public ModelAndView view(@PathVariable("id") Long id){
         ModelAndView modelAndView = new ModelAndView("/news/newsView.jsp");
         modelAndView.addObject("news", newsService.getOne(id, true));
-        modelAndView.addObject("comments", commentRepository.findByNewsId(id));
+        modelAndView.addObject("comments", commentServiceImpl.findByNewsId(id));
         return modelAndView;
+    }
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.POST)
+    public String addComment (@PathVariable("id") Long id,HttpServletRequest request){
+
+        commentServiceImpl.saveEditFromRequest(request,id);
+        String a =Long.toString(id);
+        return "redirect:/news/view/"+a;
     }
 }

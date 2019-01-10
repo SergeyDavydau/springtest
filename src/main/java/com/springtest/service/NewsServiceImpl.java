@@ -4,6 +4,7 @@ import com.springtest.model.Author;
 import com.springtest.model.News;
 import com.springtest.repo.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
 
+    @Qualifier("newsRepository")
     @Autowired
     private NewsRepository newsRepository;
     @Autowired
@@ -35,6 +37,7 @@ public class NewsServiceImpl implements NewsService {
 
         news.setTitle(title);
         news.setContent(content);
+        news.setViewsAmount(0L);
 
         newsRepository.save(news);
     }
@@ -46,13 +49,15 @@ public class NewsServiceImpl implements NewsService {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
         Long authorId = Long.valueOf(request.getParameter("author"));
+        Long viewsAmount = Long.valueOf(request.getParameter("viewsAmount"));
 
-        Author author =  authorService.getOne(authorId);
+        Author author = authorService.getOne(authorId);
 
         news.setId(id);
         news.setTitle(title);
         news.setContent(content);
         news.setAuthor(author);
+        news.setViewsAmount(viewsAmount);
 
         newsRepository.save(news);
     }

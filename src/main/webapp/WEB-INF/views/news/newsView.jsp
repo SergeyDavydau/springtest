@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 <jsp:include page="../header.jsp"/>
@@ -56,14 +57,17 @@
             </tr>
         </c:forEach>
         <tr>
-            <td colspan="3">
-                <input class="form-control" style="width: 100%;" type="text" placeholder="Enter your comment...">
-            </td>
-            <td>
-                <button class="form-control"> Post </button>
+            <form method="post">
+                <td colspan="3">
+                    <input class="form-control" name="" style="width: 100%;" type="text" placeholder="Enter your comment...">
+                </td>
+                <td>
+                    <button class="form-control" type="submit"> Post</button>
+            </form>
             </td>
         </tr>
     </table>
+
 
 </div>
 </body>

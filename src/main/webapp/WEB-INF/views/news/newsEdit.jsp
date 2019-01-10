@@ -15,6 +15,7 @@
     <form method="post">
 
         <input type="hidden" name="id" value="${editNews.id}"/>
+        <input type="hidden" name="viewsAmount" value="${editNews.viewsAmount}"/>
 
         <div class="row">
             <div class="col-md-8">

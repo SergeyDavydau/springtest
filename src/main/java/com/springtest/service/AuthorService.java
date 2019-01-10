@@ -18,5 +18,5 @@ public interface AuthorService {
 
     void delete(Long id);
 
-	List<News> getNewsByAuthor(Long id);
+    List<News> getNewsByAuthor(Long id);
 }
